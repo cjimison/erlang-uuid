@@ -181,7 +181,7 @@ uuid4() ->
 %% @doc  Create a UUID v5 (name based, SHA1 is hashing function) as a binary.
 %%       Magic numbers are from Appendix C of the RFC 4122.
 -spec uuid5(NamespaceOrUuid::atom() | uuid_string() | uuid(),
-            Name::string()) -> uuid().
+            Name::string() | binary()) -> uuid().
 uuid5(dns, Name) ->
     create_namebased_uuid(sha1,
         list_to_binary([<<16#6ba7b8109dad11d180b400c04fd430c8:128>>, Name]));
